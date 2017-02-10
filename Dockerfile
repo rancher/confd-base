@@ -5,6 +5,7 @@ RUN apk add --update curl ca-certificates \
     && chmod +x /usr/bin/confd \
     && mkdir -p /etc/confd
 
-ONBUILD ADD ./templates ./conf.d /etc/confd/
+ONBUILD ADD templates /etc/confd/templates/
+ONBUILD ADD conf.d /etc/confd/conf.d/
 
 ENTRYPOINT ["confd"]
